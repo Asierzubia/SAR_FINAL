@@ -15,5 +15,4 @@
 <respuesta id_respuesta="4">
 <nombre>Asier</nombre><comentario>Hola esta es la respuesta</comentario><fecha>2001-05-15</fecha>
 </respuesta>
-</respuestas>
-
+<respuesta id_respuesta=""><nombre>listajajaja</nombre><comentario>camion</comentario><fecha>20-01-07</fecha><email mostrar="no">99@gmail.com</email></respuesta><respuesta id_respuesta="1"><nombre>camiones</nombre><comentario>surfean el rio</comentario><fecha>20-01-07</fecha><email mostrar="no">99@gmail.com</email></respuesta></respuestas>

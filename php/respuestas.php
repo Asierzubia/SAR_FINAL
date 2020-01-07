@@ -30,6 +30,7 @@
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="respuestas.php" onsubmit="return validar()">
 			<input id="Nombre" name="Nombre" type="text" class="formulario" placeholder="Tu nombre" requiered><br>
+			<input type="hidden" name="id_respuesta_comentario" value="<?php echo $_POST['id_respuesta_comentario']?>">
 			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly requiered><br>
 			<textarea id="mensaje" name="mensaje" class="formulario"
 				placeholder="Escribe sobre comentario seleccionado" row="10" requiered></textarea><br>
@@ -50,35 +51,39 @@
                     $text = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<respuestas xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"guardarRespuestas.xsd\">";
                     fwrite($archivo,$text) or die("No se ha podido escribir el archivo.");
                     fclose($archivo);
-                }
+                }else{
 
-				// Abrir xml
-				if($xml = simplexml_load_file("../xml_dtd/guardarRespuestas.xml")===FALSE){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
+					// Abrir xml
+					if(simplexml_load_file("../xml_dtd/guardarRespuestas.xml")){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
+						$xml = simplexml_load_file("../xml_dtd/guardarRespuestas.xml") or die("Erro al abrir el xml");
+						echo"listajajaj";
+						// Añadir datos al xml
+						$respuesta = $xml->addChild("respuesta");
+						$respuesta->addAttribute("id_respuesta",$_REQUEST['id_respuesta_comentario']);
+						$respuesta->addChild("nombre", $_REQUEST['Nombre']);
+						$respuesta->addChild("comentario", $_REQUEST['mensaje']);
+						$respuesta->addChild("fecha", date("y-m-d"));
 
-					// Añadir datos al xml
-					$respuesta->addAttribute("id_respuesta",$_POST['id_respuesta_comentario']);
-					$respuesta->addChild("nombre", $_REQUEST['Nombre']);
-					$respuesta->addChild("comentario", $_REQUEST['mensaje']);
-					$respuesta->addChild("fecha", date("y-m-d"));
 
-
-					if(isset($_REQUEST['email']))
-					{
-						$email = $respuesta->addChild("email",$_REQUEST['email']);
-						if(isset($_REQUEST['public']))
+						if(isset($_REQUEST['email']))
 						{
-							$email->addAttribute("mostrar","si");
+							$email = $respuesta->addChild("email",$_REQUEST['email']);
+							if(isset($_REQUEST['public']))
+							{
+								$email->addAttribute("mostrar","si");
+							}
+							else
+							{
+								$email->addAttribute("mostrar","no");
+							}
 						}
-						else
-						{
-							$email->addAttribute("mostrar","no");
-						}
-					}
 
-					if($xml->asXML('../xml_dtd/guardarRespuestas.xml')===FALSE){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
-						echo"<script>alert('Su respuesta no ha podido ser enviada.');window.location.href='../index.html';</script>";
+							//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
+							$xml->asXML('../xml_dtd/guardarRespuestas.xml') or die("Error al guardar el xml");
+							echo"<script>alert('Su respuesta no ha podido ser enviada.');window.location.href='../index.html';</script>";
+						
+						echo "<h3 style=\"color: green; font-weight: bold\">¡Comentario añadido satisfactoriamente!</h3>";
 					}
-					echo "<h3 style=\"color: green; font-weight: bold\">¡Comentario añadido satisfactoriamente!</h3>";
 				}
 			}
 		?> 

@@ -30,4 +30,4 @@
 		<input type="button" class="botones" name="boton3" value="LOG OUT" onclick="location.href='php/logout.php'">
 	</div>
 </body>
-	
+</html>
