@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,20,0.5),rgba(0,0,20,0.5)),url(log_in.png);
+    background-size: cover;
+    background-position:justify;
+    font-family: sans-serif;
+}
+
+.login{
+    
+    border-radius: 10px;
+    border: 1px solid #666666;
+    width: 500px;
+    position: absolute;
+    top: 50%; /* Esto es para centrar el log in*/
+    left: 50%; /* Esto es para centrar el log in*/
+    transform: translate(-50%,-50%); /* Esto es para centrar el log in*/
+    
+}
+
+.log_in{
+
+    text-align: center;
+
+}

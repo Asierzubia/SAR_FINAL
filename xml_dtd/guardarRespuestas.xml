@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<respuestas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="guardarRespuestas.xsd">
+<respuesta id_respuesta="1">
+<nombre>Asier</nombre><comentario>Hola esta es la respuesta</comentario><fecha>2001-05-15</fecha>
+</respuesta>
+<respuesta id_respuesta="1">
+<nombre>Asier</nombre><comentario>diosiiiittttoooooo</comentario><fecha>2001-05-15</fecha>
+</respuesta>
+<respuesta id_respuesta="1">
+<nombre>Asier</nombre><comentario>dfgdfgfgdfg</comentario><fecha>2001-05-15</fecha>
+</respuesta>
+<respuesta id_respuesta="1">
+<nombre>Asier</nombre><comentario>dfg</comentario><fecha>2001-05-15</fecha>
+</respuesta>
+<respuesta id_respuesta="4">
+<nombre>Asier</nombre><comentario>Hola esta es la respuesta</comentario><fecha>2001-05-15</fecha>
+</respuesta>
+</respuestas>
+

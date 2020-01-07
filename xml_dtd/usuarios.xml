@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<users> <!--Como es muy sencillo he decido no hacer un dtd ni un xsd.-->
+    <user>
+        <nombre>Asier Zubia</nombre>
+        <email>asier@gmail.com</email>
+        <pass>123456</pass>
+    </user>
+<user><nombre>asier99</nombre><email>99@gmail.com</email><pass>$2y$10$9gRlSU/G9U9k7xZwclGy8.s21XSDaoORWwotmf2TGXG.wfzrz91r.</pass></user><user><nombre>Asier Zubia</nombre><email>pollas@gmail.com</email><pass>$2y$10$VM9HOKmUucb5s.NdNmSgRebXMNYIDRmEO628ItxedZ6ST8Y7u7KJq</pass></user></users>

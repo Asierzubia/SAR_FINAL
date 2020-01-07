@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE visitas SYSTEM "../xml_dtd/guardarComentarios.dtd">
+<visitas ult_id="7">
+<visita id="1"><nombre>Asier</nombre><comentario>asas</comentario><tema>Lanzer Evo</tema><email mostrar="no">asier@gmail.com</email></visita><visita id="4"><nombre>asier</nombre><comentario>asas</comentario><tema>Honda S2000</tema><email mostrar="no">asier@gmail.com</email></visita><visita id="5"><nombre>gorka</nombre><comentario>es la polla</comentario><tema>Silvia s15</tema><email mostrar="no">gorka@gmail.com</email></visita><visita id="6"><nombre>Joseba</nombre><comentario>Es la bomba</comentario><tema>Silvia s15</tema><email mostrar="no">99@gmail.com</email></visita><visita id="7"><nombre>sdfsdf</nombre><comentario>sdfdsf</comentario><tema>Toyota Supra</tema><email mostrar="no">99@gmail.com</email></visita></visitas>

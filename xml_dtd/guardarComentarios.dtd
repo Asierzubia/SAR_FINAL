@@ -1,0 +1,9 @@
+<!ELEMENT visitas (visita)*>
+<!ATTLIST visitas ult_id IDREF #REQUIRED>
+<!ELEMENT visita (nombre, comentario, email?)>
+<!ATTLIST visita id ID #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT comentario (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT tema (#PCDATA)>
+<!ATTLIST email mostrar (si|no) “no”>
