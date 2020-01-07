@@ -58,7 +58,7 @@
                         echo"<tr>";
                         echo"<td colspan=\"3\">{$visita->comentario}</td>";
                         echo"</tr>";
-                        echo"<tr> <td colspan=\"3\"> Respuestas <input type=\"button\" class=\"boton_respuesta\" value=\"Responder\" onclick=\"location.href='respuestas.php'\">></td> </tr>";
+                        echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\"><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
                         $i=1;
                         foreach($respuestas->xpath("//respuesta") as $respuesta) {
                             
