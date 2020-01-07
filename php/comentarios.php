@@ -58,7 +58,8 @@
                         echo"<tr>";
                         echo"<td colspan=\"3\">{$visita->comentario}</td>";
                         echo"</tr>";
-                        echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\"><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
+                        $id = $visita['id'];
+                        echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\" method=\"post\"><input type=\"hidden\" name=\"id_respuesta_comentario\" value=\"$id\"><input type=\"hidden\" name=\"vienedelform\" value=\"si\"/><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
                         $i=1;
                         foreach($respuestas->xpath("//respuesta") as $respuesta) {
                             
