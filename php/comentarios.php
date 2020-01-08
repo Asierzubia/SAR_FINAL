@@ -2,12 +2,12 @@
 	session_start();
 	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
 		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
-			echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
 		}
 	}else{
 
-		echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+        echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 		exit();
 	}
 ?>
@@ -36,34 +36,34 @@
 		</div>
         <div class="tabla" id="comentarios">
 		<?php
-            $xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml");
-            $respuestas = simplexml_load_file("../xml_dtd/guardarRespuestas.xml");
-			foreach($xml->xpath("//visita") as $visita){
+            $xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml") or die("No se ha podido acceder a la base de datos que almacena los comentarios");
+            $respuestas = simplexml_load_file("../xml_dtd/guardarRespuestas.xml") or die("No se ha podido acceder a la base de datos que almacena las respuestas");
+			foreach($xml->xpath("//visitor") as $visitor){
                 
                     echo'<div class="box"><table border=1>';
-                        if(isset($visita->email))
+                        if(isset($visitor->email))
                         {	
-                            $email = $visita->email;
+                            $email = $visitor->email;
                             if($email["mostrar"]=="si"){
-                                echo"<th>{$visita->nombre}</th>";
-                                echo"<th>{$visita->tema}</th>";
-                                echo"<th>{$visita->email}</th>";
+                                echo"<th>{$visitor->nombre}</th>";
+                                echo"<th>{$visitor->tema}</th>";
+                                echo"<th>{$visitor->email}</th>";
                                 
                             }else{
-                                echo"<th>{$visita->nombre}</th>";
-                                echo"<th>{$visita->tema}</th>";
+                                echo"<th>{$visitor->nombre}</th>";
+                                echo"<th>{$visitor->tema}</th>";
                             }
                         }
                         echo"</tr>";
                         echo"<tr>";
-                        echo"<td colspan=\"3\">{$visita->comentario}</td>";
+                        echo"<td colspan=\"3\">{$visitor->comentario}</td>";
                         echo"</tr>";
-                        $id = $visita['id'];
+                        $id = $visitor['id'];
                         echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\" method=\"post\"><input type=\"hidden\" name=\"id_respuesta_comentario\" value=\"$id\"><input type=\"hidden\" name=\"vienedelform\" value=\"si\"/><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
                         $i=1;
                         foreach($respuestas->xpath("//respuesta") as $respuesta) {
                             
-                            if(strcmp($respuesta['id_respuesta'],$visita['id'])===0){
+                            if(strcmp($respuesta['id_respuesta'],$visitor['id'])===0){
 
                                 echo'<tr style="display: none" class="'.$respuesta['id_respuesta'].'">';
                                 echo"<th>{$respuesta->nombre}</th>";
@@ -73,7 +73,7 @@
                                  $i = $i + 1;
                             }
                         }
-                    echo"<tr> <td colspan=\"3\"> <input type=\"submit\" id=\"boton\" value=\"Mostrar\" onclick=\"mostrar('".$visita['id']."')\"> <input type=\"submit\" id=\"boton\" value=\"Ocultar\" onclick=\"ocultar('".$visita['id']."')\"> </td></tr>";
+                    echo"<tr> <td colspan=\"3\"> <input type=\"submit\" id=\"boton\" value=\"Mostrar\" onclick=\"mostrar('".$visitor['id']."')\"> <input type=\"submit\" id=\"boton\" value=\"Ocultar\" onclick=\"ocultar('".$visitor['id']."')\"> </td></tr>";
                     echo"</table></div>";
 					echo"<br>";
 		    }

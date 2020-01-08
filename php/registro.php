@@ -26,7 +26,7 @@
 
             if(!existeEmailIguales($_REQUEST['email'])){
 
-                $XML = simplexml_load_file("../xml_dtd/usuarios.xml");
+                $XML = simplexml_load_file("../xml_dtd/usuarios.xml") or die("No se ha podido acceder a la base de datos que almacena los usuarios");
 
                 $user = $XML->addChild("user");
 
@@ -34,9 +34,9 @@
 				$user->addChild("email", $_REQUEST['email']);
                 $user->addChild("pass", password_hash($_REQUEST['pass'],PASSWORD_DEFAULT));
                 
-                $XML->asXML('../xml_dtd/usuarios.xml');
+                $XML->asXML('../xml_dtd/usuarios.xml') or die("No se ha podido el usurio que deseas registrar");
 				echo "<h3 style=\"color: green; font-weight: bold\">¡Se ha registrado satisfactoriamente!</h3>";
-
+                echo "<script>alert('Pulsa aceptar para acceder a la pantalla principal.');window.location.href='../index.html';</script>";
             }
         }
     }
@@ -48,7 +48,7 @@
 
     function existeEmailIguales($email){
 
-        $XML=simplexml_load_file("../xml_dtd/usuarios.xml");
+        $XML=simplexml_load_file("../xml_dtd/usuarios.xml") or die("No se ha podido acceder a la base de datos que almacena los usuarios");
         foreach($XML->user as $user){
             if ($email === $user->email){
                 return true;

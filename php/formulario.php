@@ -2,12 +2,12 @@
 	session_start();
 	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
 		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
-			echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
 		}
 	}else{
 
-		echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+		echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 		exit();
 	}
   
@@ -18,17 +18,7 @@
 	<title> Titulo_forum </title>
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css">
 	<script src="../js/app.js"></script>
-
-	<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/starter-template/">
-
-    <!-- Bootstrap core CSS -->
-      <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -38,8 +28,8 @@
 
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="formulario.php" onsubmit="return validar()">
-			<input id="Nombre" name="Nombre" type="text" class="formulario" placeholder="Tu nombre" requiered><br>
-			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly requiered><br>
+			<input id="Nombre" name="Nombre" type="text" class="formulario" placeholder="Tu nombre" required><br>
+			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
 			<div class="form-group">
 			<select class="form-control col-md-2" style="margin-left: auto; margin-right:auto" id="tema" name="tema">
 				<option value="Select car">Select car:</option>
@@ -51,29 +41,26 @@
 				<option value="Datsun 370">Datsun 370</option>
 			</select>
 			</div>
-			<textarea id="mensaje" name="mensaje" class="formulario"
-				placeholder="Escribe sobre el tema indicado anteriormente" row="10" requiered></textarea><br>
+			<textarea id="mensaje" name="mensaje" class="formulario" placeholder="Escribe sobre el tema indicado anteriormente" required></textarea><br>
 			<input type="submit" class="formulario submit" value="SEND MESSAGE">
 		</form>
 		<form id="atras" method="post" action="../index.php">
 			<input type="submit" name="boton2" class="formulario2" value="VOLER AL INICIO">	
 		</form>
 	</div>
-
-</body>
-<div>
+	<div>
 		<?php
 			if(isset($_REQUEST['Nombre']))
 			{
 				if(!file_exists('../xml_dtd/guardarComentarios.xml')){
                     $archivo = fopen('../xml_dtd/guardarComentarios.xml','w+') or die("No se ha podido crear el archivo");
-                    $text = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!DOCTYPE visitas SYSTEM \"../xml_dtd/guardarComentarios.dtd\">\n<visitas ult_id=\"0\">\n</visitas>";
+                    $text = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!DOCTYPE visitantes SYSTEM \"../xml_dtd/guardarComentarios.dtd\">\n<visitantes ult_id=\"0\">\n</visitantes>";
                     fwrite($archivo,$text) or die("No se ha podido escribir el archivo.");
                     fclose($archivo);
                 }
 
 				// Abrir xml
-				$xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml");
+				$xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml") or die("No se ha podido acceder a la base de datos que almacena los comentarios");
 
 				// Actualizar id
 				$id = $xml['ult_id'];
@@ -81,17 +68,17 @@
 				$xml['ult_id'] = $id;
 
 				// Añadir datos al xml
-				$visita = $xml->addChild("visita");
-				$visita->addAttribute("id", $id);
+				$visitor = $xml->addChild("visitor");
+				$visitor->addAttribute("id", $id);
 
-				$visita->addChild("nombre", $_REQUEST['Nombre']);
-				$visita->addChild("comentario", $_REQUEST['mensaje']);
-				$visita->addChild("tema", $_REQUEST['tema']);
+				$visitor->addChild("nombre", $_REQUEST['Nombre']);
+				$visitor->addChild("comentario", $_REQUEST['mensaje']);
+				$visitor->addChild("tema", $_REQUEST['tema']);
 
 
 				if(isset($_REQUEST['email']))
 				{
-					$email = $visita->addChild("email",$_REQUEST['email']);
+					$email = $visitor->addChild("email",$_REQUEST['email']);
 					if(isset($_REQUEST['public']))
 					{
 						$email->addAttribute("mostrar","si");
@@ -101,9 +88,11 @@
 						$email->addAttribute("mostrar","no");
 					}
 				}
-				$xml->asXML('../xml_dtd/guardarComentarios.xml');
-				echo "<h3 style=\"color: green; font-weight: bold\">¡Comentario añadido satisfactoriamente!</h3>";
+				$xml->asXML('../xml_dtd/guardarComentarios.xml') or die("No se ha podido guardar el comentario enviado");
+				echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario añadido coreectamente!</h3>";
 			}
 		?> 
 </div>
+</body>
+
 </html>

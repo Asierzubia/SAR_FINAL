@@ -2,12 +2,12 @@
 	session_start();
 	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
 		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
-			echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
 		}
 	}else{
 
-		echo "<script>alert('Tienes que inicar sesión para poder acceder aquí.');window.location.href='../index.html';</script>";
+        echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 		exit();
 	}
   
@@ -16,6 +16,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>Página upload</title>
         <link rel="stylesheet" type="text/css" href="../css/upload.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> <!--Enlace que contiene diferentes clases(iconos) para poder utilizarlos más tarde-->
         <script src="../js/jquery-3.4.1.min.js"></script>
@@ -32,7 +33,7 @@
         <div>     
             <button class="importante_boton" onclick="mostrar('texto_desplegado')">Desplegar</button>
         </div>
-        <p style="display: none" class="texto_desplegado">Por favor suba fotos de alta calidad para que más tarde no aparezcan distorsionadas en la galeria, muchas gracias por su atención. </br>
+        <p style="display: none" class="texto_desplegado">Por favor suba fotos de alta calidad para que más tarde no aparezcan distorsionadas en la galeria, muchas gracias por su atención. <br>
         Para subir la imagen, haz click sobre el boton browse, selecciona la imagen que desear subir, selecciona el modelo y por ultimo hac click en el boton Subir archivo. </p>
         
         
@@ -69,7 +70,7 @@
                 if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
                     echo "El archivo se ha subido correctamente. Gracias por su aportación al foro";
                 } else{
-                    echo "Ha ocurrido un error, trate de nuevo!";
+                    echo "<script>alert('Ha ocurrido un error, vuelva a intentarlo más tarde.');window.location.href='galeriaCoches.php';</script>";
                 }
            }
         ?>

@@ -16,7 +16,7 @@
 <head>
 
         <link rel="stylesheet" type="text/css" href="../css/log_in.css">
-
+        <title>Página log_in</title>
 </head>
 <body>
     <div>
@@ -35,7 +35,7 @@
         
             if(isset($_REQUEST['email'])){ /*Aqui tengo que hacer el codigo si el correo que ha introducido el usuraio esta dentro de .xml creado, y en ese caso mirar a ver si la contraseña es la correcta*/
 
-                $XML = simplexml_load_file('../xml_dtd/usuarios.xml');
+                $XML = simplexml_load_file('../xml_dtd/usuarios.xml') or die("No se ha podido acceder a la base de datos que almacena los usuarios registrados");
                 $encontrado=false;
                 ini_set("session.use_only_cookies","1");
                 ini_set("session.use_trans_sid","0"); 
@@ -49,10 +49,7 @@
                                         session_set_cookie_params(0, "/", $HTTP_SERVER_VARS["HTTP_HOST"], 0); 
                                         $_SESSION['identificado']="SI"; /* creo mis propias variables de sesión */
                                         $_SESSION['email'] = $_REQUEST['email'];
-                                        echo "<script>
-                                        alert('Inicio de sesion realizado correctamente. Pulsa aceptar para acceder a la pantalla principal.');
-                                        window.location.href='../index.php';
-                                        </script>";
+                                        
                                 }else{
                                         $_SESSION['identificado'] = "NO";
                                         echo "Usuario o contraseña incorrectos, prueba de nuevo. <br>";
@@ -61,11 +58,9 @@
                         }
                         
                 }
-                echo "Usuario o contraseña incorrectos, prueba de nuevo. <br>";
+                echo "Usuario o contraseña incorrectos. <br>";
                 echo "<a href=\"javascript:history.back()\">Volver a atras</a>";
-                
-
-                
+     
             }
     ?>
 

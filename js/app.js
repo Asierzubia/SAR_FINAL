@@ -20,7 +20,7 @@ function validar() {
   } else if (email.length > 50) {
     alert("El email introducido es demasiado largo");
     return false;
-  } else if (tema == 0) {
+  } else if (tema === "Select car") {
     alert("Selecciona un tema valido.");
     return false;
   }
@@ -55,7 +55,7 @@ function cambiarFotos(coche){
 
 function volverGaleria(){
   $('#fotos').empty();
-  $('#fotos').html('<div class="fotos" id="escogido" onclick="cambiarFotos(\'impreza\')"><a class="lightbox">Subaru impreza sti<img class="galeria__img" src="../galeria/impreza/impreza_1.jpg"></a></div><div class="fotos" id="escogido" onclick="cambiarFotos(\'evo\')"><a class="lightbox">Lanzer EVO<img class="galeria__img" src="../galeria/evo/evo_2.jpg" value="1" ></a></div><div class="fotos" id="escogido" onclick="cambiarFotos(\'supra\')"><a class="lightbox">Toyota Supra<img class="galeria__img" src="../galeria/supra/supra_2.jpg" value="2"></a></div><div class="fotos" id="escogido" onclick="cambiarFotos(\'silvia\')"><a class="lightbox">Sivia s15<img class="galeria__img" src="../galeria/silvia/silvia_2.jpg" value="3" ></a></div><div class="fotos" id="escogido" onclick="cambiarFotos(\'honda\')"><a class="lightbox">Honda S2000<img class="galeria__img" src="../galeria/honda/honda_2.jpg" value="4" alt="Rails"></a></div><div class="fotos" id="escogido" onclick="cambiarFotos(\'datsun\')"><a class="lightbox">Datsun 240z<img class="galeria__img" src="../galeria/datsun/datsun_2.jpg" value="5"></a></div><input type="button" name="boton" class="galeria" value="VOLER AL INICIO" onclick="location.href=\'../index.php\';">');
+  $('#fotos').html('<div class="fotos" onclick="cambiarFotos(\'impreza\')"><a class="lightbox">Subaru impreza sti<img class="galeria__img" src="../galeria/impreza/impreza_1.jpg" alt="impreza"></a></div><div class="fotos" onclick="cambiarFotos(\'evo\')"><a class="lightbox">Lanzer EVO<img class="galeria__img" src="../galeria/evo/evo_2.jpg" alt="evo"></a></div><div class="fotos" onclick="cambiarFotos(\'supra\')"><a class="lightbox">Toyota Supra<img class="galeria__img" src="../galeria/supra/supra_2.jpg" alt="supra"></a></div><div class="fotos" onclick="cambiarFotos(\'silvia\')"><a class="lightbox">Sivia s15<img class="galeria__img" src="../galeria/silvia/silvia_2.jpg" alt="silvia"></a></div><div class="fotos" onclick="cambiarFotos(\'honda\')"><a class="lightbox">Honda S2000<img class="galeria__img" src="../galeria/honda/honda_2.jpg" alt="honda"></a></div><div class="fotos" onclick="cambiarFotos(\'datsun\')"><a class="lightbox">Datsun 240z<img class="galeria__img" src="../galeria/datsun/datsun_2.jpg" alt="datsun"></a></div><input type="button" name="boton" class="galeria" value="VOLER AL INICIO" onclick="location.href=\'../index.php\';">');
 }
 
 function mostrar(id){

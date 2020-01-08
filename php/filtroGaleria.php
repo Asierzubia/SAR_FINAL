@@ -12,7 +12,7 @@
         while($i<=$numero_fotos){
             echo'<div class="fotos">
             <a class="lightbox" href="../galeria/'.$_REQUEST["coche"].'/'.$_REQUEST["coche"].'_'.$i.'.jpg">
-                <img class="galeria__img" src="../galeria/'.$_REQUEST["coche"].'/'.$_REQUEST["coche"].'_'.$i.'.jpg">
+                <img class="galeria__img" src="../galeria/'.$_REQUEST["coche"].'/'.$_REQUEST["coche"].'_'.$i.'.jpg" alt='.$_REQUEST["coche"].'>
             </a>
         </div>';
             $i+=1;
