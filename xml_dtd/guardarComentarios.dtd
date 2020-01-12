@@ -1,4 +1,5 @@
 <!ELEMENT visitantes (visitor)*>
+<!ATTLIST visitantes last_id IDREF #REQUIRED>
 <!ELEMENT visitor (nombre, comentario, email?)>
 <!ATTLIST visitor id ID #REQUIRED>
 <!ELEMENT nombre (#PCDATA)>

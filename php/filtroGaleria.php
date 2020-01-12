@@ -2,6 +2,7 @@
 
     echo'<input type="button" class="galeria" value="Volver a Galeria" onclick="volverGaleria()">';
     echo'<input type="button" class="galeria2" value="Volver al inicio" onclick="location.href=\'../index.php\';">';
+    echo'<input type="button" class="boton_subir_foto2" value="Subir Imagen" onclick="location.href=\'upload.php\';">';
     $nombre_coche = $_REQUEST['coche'];
     $numero_fotos = count(glob('../galeria/'.$nombre_coche.'/{*.jpg,*.gif,*.png}',GLOB_BRACE)); /* Para saber cuantas imagenes tengo que mostrar
     tengo que saber primero cuantas imágenes hay en la carpeta de ese modelo de coche en específico.

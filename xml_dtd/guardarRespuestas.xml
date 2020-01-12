@@ -1,18 +1,3 @@
 <?xml version="1.0"?>
 <respuestas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="guardarRespuestas.xsd">
-<respuesta id_respuesta="1">
-<nombre>Asier</nombre><comentario>Hola esta es la respuesta</comentario><fecha>20-05-15</fecha>
-</respuesta>
-<respuesta id_respuesta="1">
-<nombre>Asier</nombre><comentario>diosiiiittttoooooo</comentario><fecha>20-05-15</fecha>
-</respuesta>
-<respuesta id_respuesta="1">
-<nombre>Asier</nombre><comentario>dfgdfgfgdfg</comentario><fecha>20-05-15</fecha>
-</respuesta>
-<respuesta id_respuesta="1">
-<nombre>Asier</nombre><comentario>dfg</comentario><fecha>20-05-15</fecha>
-</respuesta>
-<respuesta id_respuesta="4">
-<nombre>Asier</nombre><comentario>Hola esta es la respuesta</comentario><fecha>20-05-15</fecha>
-</respuesta>
-<respuesta id_respuesta=""><nombre>listajajaja</nombre><comentario>camion</comentario><fecha>20-01-07</fecha><email mostrar="no">99@gmail.com</email></respuesta><respuesta id_respuesta="1"><nombre>camiones</nombre><comentario>surfean el rio</comentario><fecha>20-01-07</fecha><email mostrar="no">99@gmail.com</email></respuesta><respuesta id_respuesta="12"><nombre>asier_best</nombre><comentario>Esta es la primera respuesta</comentario><fecha>20-01-08</fecha><email mostrar="no">jeje@gmail.com</email></respuesta><respuesta id_respuesta="1"><nombre>asier</nombre><comentario>3e32e</comentario><fecha>20-01-09</fecha><email mostrar="no">99@gmail.com</email></respuesta></respuestas>
+<respuesta id_respuesta="1"><nombre>Asier</nombre><comentario>guay</comentario><fecha>20-01-12</fecha><email mostrar="no">99@gmail.com</email></respuesta></respuestas>

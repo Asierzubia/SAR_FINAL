@@ -28,8 +28,11 @@
 
     <h1>GALERIA DE MODELOS</h1>
     <div class="tz-gallery">
-        <input type="button" class="boton_subir_foto" value="Subir Imagen" onclick="location.href='upload.php'">
         <div class="galeria_fotos" id="fotos" >
+        <div>
+        <input type="button" class="boton_subir_foto" value="Subir Imagen" onclick="location.href='upload.php'">
+        <input type="button" name="boton" class="galeria2" value="VOLER AL INICIO" onclick="location.href='../index.php';">	
+        </div>  
             <div class="fotos" onclick="cambiarFotos('impreza')">
                 <a class="lightbox">
                     Subaru impreza sti
@@ -66,7 +69,6 @@
                     <img src="../galeria/datsun/datsun_2.jpg" class="galeria__img" alt="datsun">
                 </a>
             </div>
-            <input type="button" name="boton" class="galeria" value="VOLER AL INICIO" onclick="location.href='../index.php';">	
         </div>
     </div>
 </div>

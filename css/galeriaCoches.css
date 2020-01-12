@@ -57,7 +57,34 @@ body {
     border-radius: 6px;
     border: 2px solid #0016b0;
 }
-
+.boton_subir_foto{
+    text-decoration: none;
+    text-align: center;
+    float: none;
+    margin-bottom: 5%;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+.boton_subir_foto2{
+    text-decoration: none;
+    text-align: center;
+    float: none;
+    margin-left: 30%;
+    transform: translateX(-30%); /* Es para centrar el botón a mi gusto*/
+    margin-bottom: 5%; /* Es para centrar el botón a mi gusto*/
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
 .galeria2 {
     text-decoration: none;
     text-align: center;
@@ -70,23 +97,6 @@ body {
     background-color: #1883ba;
     border-radius: 6px;
     border: 2px solid #0016b0;
-}
-
-.boton_subir_foto{
-
-    text-decoration: none;
-    margin-left: 50%; /* Para poder centrar el boton */
-    transform: translateX(-50%); /* Para poder centrar el boton*/
-    text-align: center;
-    margin-bottom: 3%;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-
 }
 .galeria__img{
 
