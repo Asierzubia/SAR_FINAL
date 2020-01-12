@@ -50,11 +50,11 @@
                     fclose($archivo);
                 }else{
 
-					// Abrir xml
+					// ABRIR EL XML
 					if(simplexml_load_file("../xml_dtd/guardarRespuestas.xml")){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
 						$xml = simplexml_load_file("../xml_dtd/guardarRespuestas.xml") or die("No se ha podido acceder a la base de datos que almacena las respuestas");
 						echo"listajajaj";
-						// Añadir datos al xml
+						// ANADIR ELEMENTOS Y ATRIBUTOS AL XML
 						$respuesta = $xml->addChild("respuesta");
 						$respuesta->addAttribute("id_respuesta",$_REQUEST['id_respuesta_comentario']);
 						$respuesta->addChild("nombre", $_REQUEST['Nombre']);
@@ -74,7 +74,7 @@
 								$email->addAttribute("mostrar","no");
 							}
 						}
-
+							//GUARDAR EL XML
 							//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
 							$xml->asXML('../xml_dtd/guardarRespuestas.xml') or die("No se ha podido guardar la respuesta que desead publicar");
 							echo"<script>alert('Su respuesta se ha enviado correctamente.');window.location.href='../index.php';</script>";

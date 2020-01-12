@@ -54,22 +54,17 @@
 			{
 				if(!file_exists('../xml_dtd/guardarComentarios.xml')){
                     $archivo = fopen('../xml_dtd/guardarComentarios.xml','w+') or die("No se ha podido crear el archivo");
-                    $text = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!DOCTYPE visitantes SYSTEM \"../xml_dtd/guardarComentarios.dtd\">\n<visitantes ult_id=\"0\">\n</visitantes>";
+                    $text = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!DOCTYPE visitantes SYSTEM \"../xml_dtd/guardarComentarios.dtd\">\n<visitantes>\n</visitantes>";
                     fwrite($archivo,$text) or die("No se ha podido escribir el archivo.");
                     fclose($archivo);
                 }
 
-				// Abrir xml
+				// ABRIR EL XML
 				$xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml") or die("No se ha podido acceder a la base de datos que almacena los comentarios");
 
-				// Actualizar id
-				$id = $xml['ult_id'];
-				$id = $id + 1;
-				$xml['ult_id'] = $id;
-
-				// Añadir datos al xml
+				// AÑADIR ELEMENTOS Y ATRIBUTOS AL XML
 				$visitor = $xml->addChild("visitor");
-				$visitor->addAttribute("id", $id);
+				$visitor->addAttribute("id", $_REQUEST['id']);
 
 				$visitor->addChild("nombre", $_REQUEST['Nombre']);
 				$visitor->addChild("comentario", $_REQUEST['mensaje']);
@@ -88,11 +83,11 @@
 						$email->addAttribute("mostrar","no");
 					}
 				}
+				//GUARDAR EL XML
 				$xml->asXML('../xml_dtd/guardarComentarios.xml') or die("No se ha podido guardar el comentario enviado");
 				echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario añadido coreectamente!</h3>";
 			}
 		?> 
 </div>
 </body>
-
 </html>

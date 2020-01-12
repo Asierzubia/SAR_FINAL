@@ -33,11 +33,13 @@
         <div>     
             <button class="importante_boton" onclick="mostrar('texto_desplegado')">Desplegar</button>
         </div>
-        <p style="display: none" class="texto_desplegado">Por favor suba fotos de alta calidad para que más tarde no aparezcan distorsionadas en la galeria, muchas gracias por su atención. <br>
-        Para subir la imagen, haz click sobre el boton browse, selecciona la imagen que desear subir, selecciona el modelo y por ultimo hac click en el boton Subir archivo. </p>
+        <div>
+        <p style="display: none" class="texto_desplegado">Por favor suba fotos de alta calidad para que más tarde no aparezcan distorsionadas en la galería, muchas gracias por su atención. <br>
+        Para subir la imagen, haz click sobre el boton subir , selecciona la imagen que desear subir, selecciona el modelo y por ultimo hac click en el boton Subir archivo. </p>
+        </div>
         
         
-        <form enctype="multipart/form-data" action="upload.php" method="POST" class="formulario_upload"> <!-- En esta ocasión he puesto enctype devido a que necesitamos seleccionar una foto,
+        <form enctype="multipart/form-data" action="upload.php" method="POST" class="formulario_upload"> <!-- En esta ocasión he puesto enctype debido a que necesitamos seleccionar una foto,
             por lo que para ello accedemos al explorador del ordenador en el que estemos subiendo la foto.-->
             <div>
                 <select class="tema_subido" id="tema_subido" name="tema_subido">
@@ -52,7 +54,7 @@
             </div>
             <input name="uploadedfile" id="boton_browse" type="file"/>
             <label for="boton_browse">
-                <i class="fa fa-download"></i>Subir archivo</label> <!--Es una clase especifica para que me muestre el icono que he escogido, para ellos hace uso del css que he puesto arriba-->
+                <i class="fa fa-download"></i>Explorador</label> <!--Es una clase especifica para que me muestre el icono que he escogido, para ello hace uso del css que he puesto arriba-->
             <input type="submit" value="Subir archivo" class="boton_subida" />
             <div>
             <input type="button" value="Volver atras" class = "boton_subida" onclick="location.href='galeriaCoches.php'">

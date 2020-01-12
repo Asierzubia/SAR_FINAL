@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <link rel="stylesheet" type="text/css" href="../css/logout.css">
   <title>Página log_out</title>
 </head>
@@ -10,7 +9,7 @@
     <div>
         
       <script>
-        alert('Adios, te esperamos pronto.');
+        alert('Adiós, te esperamos pronto.');
         window.location.href='../index.html';
       </script>
         

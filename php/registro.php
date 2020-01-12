@@ -25,15 +25,15 @@
         if($_REQUEST['pass']===$_REQUEST['passRP']){
 
             if(!existeEmailIguales($_REQUEST['email'])){
-
+                //ABRIR EL XML
                 $XML = simplexml_load_file("../xml_dtd/usuarios.xml") or die("No se ha podido acceder a la base de datos que almacena los usuarios");
-
+                //AÑADIR ELEMENTOS Y ATRIBUTOS AL XML
                 $user = $XML->addChild("user");
 
 				$user->addChild("nombre", $_REQUEST['username']);
 				$user->addChild("email", $_REQUEST['email']);
                 $user->addChild("pass", password_hash($_REQUEST['pass'],PASSWORD_DEFAULT));
-                
+                //GUARDAR EL XML
                 $XML->asXML('../xml_dtd/usuarios.xml') or die("No se ha podido el usurio que deseas registrar");
 				echo "<h3 style=\"color: green; font-weight: bold\">¡Se ha registrado satisfactoriamente!</h3>";
                 echo "<script>alert('Pulsa aceptar para acceder a la pantalla principal.');window.location.href='../index.html';</script>";
@@ -58,5 +58,4 @@
     }
 ?>
 </body>
-
 </html>

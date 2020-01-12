@@ -36,8 +36,10 @@
 		</div>
         <div class="tabla" id="comentarios">
 		<?php
+         //ABRIR LOS XML
             $xml = simplexml_load_file("../xml_dtd/guardarComentarios.xml") or die("No se ha podido acceder a la base de datos que almacena los comentarios");
             $respuestas = simplexml_load_file("../xml_dtd/guardarRespuestas.xml") or die("No se ha podido acceder a la base de datos que almacena las respuestas");
+            //RECORRER CADA COMENTARIO
 			foreach($xml->xpath("//visitor") as $visitor){
                 
                     echo'<div class="box"><table border=1>';
@@ -61,6 +63,7 @@
                         $id = $visitor['id'];
                         echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\" method=\"post\"><input type=\"hidden\" name=\"id_respuesta_comentario\" value=\"$id\"><input type=\"hidden\" name=\"vienedelform\" value=\"si\"/><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
                         $i=1;
+                        //RECORRER CADA RESPUESTA
                         foreach($respuestas->xpath("//respuesta") as $respuesta) {
                             
                             if(strcmp($respuesta['id_respuesta'],$visitor['id'])===0){
