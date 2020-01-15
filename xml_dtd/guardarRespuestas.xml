@@ -1,3 +1,3 @@
 <?xml version="1.0"?>
 <respuestas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="guardarRespuestas.xsd">
-<respuesta id_respuesta="1"><nombre>Asier</nombre><comentario>guay</comentario><fecha>20-01-12</fecha><email mostrar="no">99@gmail.com</email></respuesta></respuestas>
+<respuesta id_respuesta="1"><nombre>Asier</nombre><comentario>guay</comentario><fecha>20-01-12</fecha><email mostrar="no">99@gmail.com</email></respuesta><respuesta id_respuesta="1"><nombre>asier</nombre><comentario>respuesta</comentario><fecha>20-01-15</fecha><email mostrar="no">kulo@gmail.com</email></respuesta><respuesta id_respuesta="2"><nombre>as</nombre><comentario>respuesta</comentario><fecha>20-01-15</fecha><email mostrar="no">kulo@gmail.com</email></respuesta><respuesta id_respuesta="2"><nombre>asier</nombre><comentario>respuesta2</comentario><fecha>20-01-15</fecha><email mostrar="no">kulo@gmail.com</email></respuesta></respuestas>

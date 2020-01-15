@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE visitantes SYSTEM "../xml_dtd/guardarComentarios.dtd">
-<visitantes last_id="1">
-<visitor id=""><nombre>Asier</nombre><comentario>Es muy bonito</comentario><tema>Lanzer Evo</tema><email mostrar="no">99@gmail.com</email></visitor><visitor id="1"><nombre>Asier</nombre><comentario>Genial</comentario><tema>Silvia s15</tema><email mostrar="no">99@gmail.com</email></visitor></visitantes>
+<visitantes last_id="2">
+<visitor id=""><nombre>Asier</nombre><comentario>Es muy bonito</comentario><tema>Lanzer Evo</tema><email mostrar="no">99@gmail.com</email></visitor><visitor id="1"><nombre>Asier</nombre><comentario>Genial</comentario><tema>Silvia s15</tema><email mostrar="no">99@gmail.com</email></visitor><visitor id="2"><nombre>asier</nombre><comentario>Es el mas potente</comentario><tema>Toyota Supra</tema><email mostrar="no">kulo@gmail.com</email></visitor></visitantes>

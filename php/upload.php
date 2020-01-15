@@ -1,12 +1,11 @@
 <?php
 	session_start();
-	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
-		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
+	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado iniciar sesión */
+		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entonces es que ha iniciado la sesión correctamente, sino es que no */
 			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
 		}
 	}else{
-
         echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 		exit();
 	}
@@ -54,7 +53,7 @@
             </div>
             <input name="uploadedfile" id="boton_browse" type="file"/>
             <label for="boton_browse">
-                <i class="fa fa-download"></i>Explorador</label> <!--Es una clase especifica para que me muestre el icono que he escogido, para ello hace uso del css que he puesto arriba-->
+                <i class="fa fa-download"></i>Explorador</label> <!--Es una clase específica para que me muestre el icono que he escogido, para ello hace uso del css que he puesto arriba-->
             <input type="submit" value="Subir archivo" class="boton_subida" />
             <div>
             <input type="button" value="Volver atras" class = "boton_subida" onclick="location.href='galeriaCoches.php'">
@@ -70,7 +69,7 @@
                 $numero_fotos = $numero_fotos + 1;
                 $target_path = $target_path . "/" . $coche_select . "_" . $numero_fotos . ".jpg";
                 if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-                    echo "El archivo se ha subido correctamente. Gracias por su aportación al foro";
+                    echo "<p style='color: white' >El archivo se ha subido correctamente. Gracias por su aportación al foro</p>";
                 } else{
                     echo "<script>alert('Ha ocurrido un error, vuelva a intentarlo más tarde.');window.location.href='galeriaCoches.php';</script>";
                 }

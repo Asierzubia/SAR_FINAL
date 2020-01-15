@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
-		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
+	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado iniciar sesión */
+		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entonces es que ha iniciado la sesión correctamente, sino es que no */
 			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
 		}
@@ -28,7 +28,7 @@
 
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="formulario.php" onsubmit="return validar()">
-			<input id="Nombre" name="Nombre" type="text" class="formulario" placeholder="Tu nombre" required><br>
+			<input id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
 			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
 			<div class="form-group">
 			<select class="form-control col-md-2" style="margin-left: auto; margin-right:auto" id="tema" name="tema">
@@ -91,7 +91,7 @@
 				}
 				//GUARDAR EL XML
 				$xml->asXML('../xml_dtd/guardarComentarios.xml') or die("No se ha podido guardar el comentario enviado");
-				echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario añadido coreectamente!</h3>";
+				echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario se ha añadido correctamente!</h3>";
 			}
 		?> 
 </div>

@@ -2,12 +2,12 @@
 	session_start();
 	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
 		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
-			echo "<script>alert('Debes inicar sesión primero.');window.location.href='index.html';</script>";
+			echo "<script>alert('1Debes inicar sesión primero.');window.location.href='index.html';</script>";
 			exit();
 		}
 	}else{
 
-		echo "<script>alert('Debes inicar sesión primero.');window.location.href='index.html';</script>";
+		echo "<script>alert('2Debes inicar sesión primero.');window.location.href='index.html';</script>";
 		exit();
 	}
 

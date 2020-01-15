@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado inicar sesión */
-		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entoces es que ha inicado la sesión correctamente, sino es que no */
+	if (isset($_SESSION['identificado'])){ /* La variable identificado solo se crea si ha intentado iniciar sesión */
+		if($_SESSION['identificado']!="SI"){ /* Si la variable vale si, entonces es que ha iniciado la sesión correctamente, sino es que no */
 
 			echo "<script>alert('Debes inicar sesión primero.');window.location.href='../index.html';</script>";
 			exit();
@@ -29,7 +29,7 @@
 
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="respuestas.php" onsubmit="return validar()">
-			<input id="Nombre" name="Nombre" type="text" class="formulario" placeholder="Tu nombre" required><br>
+			<input id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
 			<input type="hidden" name="id_respuesta_comentario" value="<?php echo $_POST['id_respuesta_comentario']?>">
 			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
 			<textarea id="mensaje" name="mensaje" class="formulario" placeholder="Escribe sobre comentario seleccionado" required></textarea><br>
@@ -51,9 +51,9 @@
                 }else{
 
 					// ABRIR EL XML
-					if(simplexml_load_file("../xml_dtd/guardarRespuestas.xml")){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
+					if(simplexml_load_file("../xml_dtd/guardarRespuestas.xml")){ //Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalúa a FALSE
 						$xml = simplexml_load_file("../xml_dtd/guardarRespuestas.xml") or die("No se ha podido acceder a la base de datos que almacena las respuestas");
-						// ANADIR ELEMENTOS Y ATRIBUTOS AL XML
+						// AÑADIR ELEMENTOS Y ATRIBUTOS AL XML
 						$respuesta = $xml->addChild("respuesta");
 						$respuesta->addAttribute("id_respuesta",$_REQUEST['id_respuesta_comentario']);
 						$respuesta->addChild("nombre", $_REQUEST['Nombre']);
@@ -74,7 +74,7 @@
 							}
 						}
 							//GUARDAR EL XML
-							//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalua a FALSE
+							//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalúa a FALSE
 							$xml->asXML('../xml_dtd/guardarRespuestas.xml') or die("No se ha podido guardar la respuesta que desead publicar");
 							echo"<script>alert('Su respuesta se ha enviado correctamente.');window.location.href='../index.php';</script>";
 						
