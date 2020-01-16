@@ -28,24 +28,30 @@
 
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="formulario.php" onsubmit="return validar()">
-			<input id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
-			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
+			<input style ="padding-bottom: 0.9em" id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
+			<input style ="padding-bottom: 0.9em" id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
+			<div class="checkbox">
+				<label for="test" style="color:white">¿Desea publicar su email?</label>
+				<label for="checkbox">
+					<input type="checkbox" name="checkbox" />
+				</label>
+			</div>
 			<div class="form-group">
-			<select class="form-control col-md-2" style="margin-left: auto; margin-right:auto" id="tema" name="tema">
-				<option value="Select car">Select car:</option>
-				<option value="Subaru Impreza">Subaru Impreza</option>
-				<option value="Lanzer Evo">Lanzer Evo</option>
-				<option value="Toyota Supra">Toyota Supra</option>
-				<option value="Silvia s15">Silvia s15</option>
-				<option value="Honda S2000">Honda S2000</option>
-				<option value="Datsun 370">Datsun 370</option>
-			</select>
+				<select class="form-control col-md-2" style="margin-left: auto; margin-right:auto" id="tema" name="tema">
+					<option value="Select car">Select car:</option>
+					<option value="Subaru Impreza">Subaru Impreza</option>
+					<option value="Lanzer Evo">Lanzer Evo</option>
+					<option value="Toyota Supra">Toyota Supra</option>
+					<option value="Silvia s15">Silvia s15</option>
+					<option value="Honda S2000">Honda S2000</option>
+					<option value="Datsun 370">Datsun 370</option>
+				</select>
 			</div>
 			<textarea id="mensaje" name="mensaje" class="formulario" placeholder="Escribe sobre el tema indicado anteriormente" required></textarea><br>
 			<input type="submit" class="formulario submit" value="SEND MESSAGE">
 		</form>
 		<form id="atras" method="post" action="../index.php">
-			<input type="submit" name="boton2" class="formulario2" value="VOLER AL INICIO">	
+			<input type="submit" name="boton2" class="formulario2" value="VOLVER AL INICIO">	
 		</form>
 	</div>
 	<div>
@@ -75,20 +81,16 @@
 				$visitor->addChild("nombre", $_REQUEST['Nombre']);
 				$visitor->addChild("comentario", $_REQUEST['mensaje']);
 				$visitor->addChild("tema", $_REQUEST['tema']);
-
-
-				if(isset($_REQUEST['email']))
+				$email = $visitor->addChild("email",$_REQUEST['email']);
+				if(isset($_REQUEST['checkbox']))
 				{
-					$email = $visitor->addChild("email",$_REQUEST['email']);
-					if(isset($_REQUEST['public']))
-					{
-						$email->addAttribute("mostrar","si");
-					}
-					else
-					{
-						$email->addAttribute("mostrar","no");
-					}
+					$email->addAttribute("mostrar","si");
 				}
+				else
+				{
+					$email->addAttribute("mostrar","no");
+				}
+			
 				//GUARDAR EL XML
 				$xml->asXML('../xml_dtd/guardarComentarios.xml') or die("No se ha podido guardar el comentario enviado");
 				echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario se ha añadido correctamente!</h3>";

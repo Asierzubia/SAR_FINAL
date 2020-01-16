@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Freebie: 4 Bootstrap Gallery Templates</title>
+    <title>Galeria</title>
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
         <div class="galeria_fotos" id="fotos" >
         <div>
         <input type="button" class="boton_subir_foto" value="Subir Imagen" onclick="location.href='upload.php'">
-        <input type="button" name="boton" class="galeria2" value="VOLER AL INICIO" onclick="location.href='../index.php';">	
+        <input type="button" name="boton" class="galeria2" value="VOLVER AL INICIO" onclick="location.href='../index.php';">	
         </div>  
             <div class="fotos" onclick="cambiarFotos('impreza')">
                 <a class="lightbox">

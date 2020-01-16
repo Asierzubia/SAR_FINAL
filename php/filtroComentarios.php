@@ -13,11 +13,10 @@
                                 if($email["mostrar"]=="si"){
                                     echo"<th>{$visitor->nombre}</th>";
                                     echo"<th>{$visitor->tema}</th>";
-                                    echo"<th>{$visitor->email}</th>";
-                                    
+                                    echo"<th>{$visitor->email}</th>";       
                                 }else{
                                     echo"<th>{$visitor->nombre}</th>";
-                                    echo"<th>{$visitor->tema}</th>";
+                                    echo"<th colspan=\"2\">{$visitor->tema}</th>";
                                 }
                             }
                             echo"</tr>";
@@ -42,8 +41,7 @@
                             }
                         echo"<tr> <td colspan=\"3\"> <input type=\"submit\" id=\"boton\" value=\"Mostrar\" onclick=\"mostrar('".$visitor['id']."')\"> <input type=\"submit\" id=\"boton\" value=\"Ocultar\" onclick=\"ocultar('".$visitor['id']."')\"> </td></tr>";
                         echo"</table></div>";
-                        echo"<br>";
-                
+                        echo"<br>";          
                 }
                 else if($_REQUEST['tema']==$visitor->tema){
                     echo'<div class="box"><table border=1>';
@@ -72,7 +70,7 @@
                     echo"<tr> <td colspan=\"3\"> Respuestas <form action=\"respuestas.php\" method=\"post\"><input type=\"hidden\" name=\"id_respuesta_comentario\" value=\"$id\"><input type=\"hidden\" name=\"vienedelform\" value=\"si\"/><input type=\"submit\" class=\"boton_respuesta\" value=\"Responder\" ></form></td> </tr>";
                     $i=1;
                     foreach($respuestas->xpath("//respuesta") as $respuesta) {
-                        
+
                         if(strcmp($respuesta['id_respuesta'],$visitor['id'])===0){
 
                             echo'<tr style="display: none" class="'.$respuesta['id_respuesta'].'">';

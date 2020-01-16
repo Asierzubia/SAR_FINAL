@@ -53,7 +53,7 @@
                                 
                             }else{
                                 echo"<th>{$visitor->nombre}</th>";
-                                echo"<th>{$visitor->tema}</th>";
+                                echo"<th colspan=\"2\">{$visitor->tema}</th>";
                             }
                         }
                         echo"</tr>";

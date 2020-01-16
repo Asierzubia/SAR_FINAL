@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Página upload</title>
+        <title>Upload</title>
         <link rel="stylesheet" type="text/css" href="../css/upload.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> <!--Enlace que contiene diferentes clases(iconos) para poder utilizarlos más tarde-->
         <script src="../js/jquery-3.4.1.min.js"></script>
@@ -41,7 +41,7 @@
         <form enctype="multipart/form-data" action="upload.php" method="POST" class="formulario_upload"> <!-- En esta ocasión he puesto enctype debido a que necesitamos seleccionar una foto,
             por lo que para ello accedemos al explorador del ordenador en el que estemos subiendo la foto.-->
             <div>
-                <select class="tema_subido" id="tema_subido" name="tema_subido">
+                <select class="tema_subido" id="tema_subido" name="tema_subido" require>
                     <option value="select_car">Select car:</option>
                     <option value="impreza">Subaru Impreza</option>
                     <option value="evo">Lanzer Evo</option>

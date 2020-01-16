@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Titulo_forum </title>
+	<title> Respuestas </title>
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css">
 	<script src="../js/app.js"></script>
 	<script src="../js/jquery-3.4.1.min.js"></script>
@@ -29,9 +29,9 @@
 
 	<div class="datos_formulario">
 		<form id="datos_formulario" method="post" action="respuestas.php" onsubmit="return validar()">
-			<input id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
 			<input type="hidden" name="id_respuesta_comentario" value="<?php echo $_POST['id_respuesta_comentario']?>">
-			<input id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
+			<input style ="padding-bottom: 0.9em" id="Nombre" name="Nombre" type="text" value="<?php echo $_SESSION['nombre_usu'];?>" class="formulario" placeholder="Tu nombre" required readonly><br>
+			<input style ="padding-bottom: 0.9em" id="email" name="email" value="<?php echo $_SESSION['email'];?>" type="text" class="formulario" readonly required><br>
 			<textarea id="mensaje" name="mensaje" class="formulario" placeholder="Escribe sobre comentario seleccionado" required></textarea><br>
 			<input type="submit" class="formulario submit" value="SEND MESSAGE">
 		</form>
@@ -59,24 +59,11 @@
 						$respuesta->addChild("nombre", $_REQUEST['Nombre']);
 						$respuesta->addChild("comentario", $_REQUEST['mensaje']);
 						$respuesta->addChild("fecha", date("y-m-d"));
-
-
-						if(isset($_REQUEST['email']))
-						{
-							$email = $respuesta->addChild("email",$_REQUEST['email']);
-							if(isset($_REQUEST['public']))
-							{
-								$email->addAttribute("mostrar","si");
-							}
-							else
-							{
-								$email->addAttribute("mostrar","no");
-							}
-						}
-							//GUARDAR EL XML
-							//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalúa a FALSE
-							$xml->asXML('../xml_dtd/guardarRespuestas.xml') or die("No se ha podido guardar la respuesta que desead publicar");
-							echo"<script>alert('Su respuesta se ha enviado correctamente.');window.location.href='../index.php';</script>";
+						$email = $respuesta->addChild("email",$_REQUEST['email']);
+						//GUARDAR EL XML
+						//Control de errores, pongo los tres iguales porque puede que devuelva un valor que se evalúa a FALSE
+						$xml->asXML('../xml_dtd/guardarRespuestas.xml') or die("No se ha podido guardar la respuesta que desead publicar");
+						echo"<script>alert('Su respuesta se ha enviado correctamente.');window.location.href='../index.php';</script>";
 						
 						echo "<h3 style=\"color: green; font-weight: bold\">¡Su comentario añadido correctamente!</h3>";
 					}

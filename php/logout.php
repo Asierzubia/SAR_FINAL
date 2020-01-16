@@ -3,7 +3,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../css/logout.css">
-  <title>Página log_out</title>
+  <title>Pagina log_out</title>
 </head>
 <body>
     <div>

@@ -5,7 +5,7 @@
 <html>
 <head>
         <link rel="stylesheet" type="text/css" href="../css/log_in.css">
-        <title>Página log_in</title>
+        <title>Pagina log_in</title>
 </head>
 <body>
     <div>
