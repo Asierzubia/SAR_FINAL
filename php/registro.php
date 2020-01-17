@@ -31,7 +31,6 @@
                     $XML = simplexml_load_file("../xml_dtd/usuarios.xml") or die("No se ha podido acceder a la base de datos que almacena los usuarios");
                     //AÑADIR ELEMENTOS Y ATRIBUTOS AL XML
                     $user = $XML->addChild("user");
-
                     $user->addChild("nombre", $_REQUEST['username']);
                     $user->addChild("email", $_REQUEST['email']);
                     $user->addChild("pass", password_hash($_REQUEST['pass'],PASSWORD_DEFAULT));
