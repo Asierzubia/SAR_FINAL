@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<users> <!--Como es muy sencillo he decido no hacer un dtd ni un xsd.-->
-<user><nombre>Asier</nombre><email>99@gmail.com</email><pass>$2y$10$tC1RbBMas4QNWKTJdqhmnuW2cLmaJt1j6qQ0oNAFm9.84N87gDQ3u</pass></user>
-</users>
