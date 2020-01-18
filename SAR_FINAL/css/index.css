@@ -1,0 +1,39 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: linear-gradient(rgba(0,0,20,0.5),rgba(0,0,20,0.5)),url(background_index.jpg);
+	background-size: cover;
+	background-position:20%;
+	font-family: sans-serif;
+}
+
+.titulo-principal
+{
+	margin-top: 200px;
+	color: #fff;
+	text-transform: uppercase;
+	transition: all 4s ease-in-out;
+}
+
+.titulo-principal h1{
+	font-size: 70px;
+	line-height:40px;
+}
+
+.titulo-principal h2{
+	font-size:40px;
+	line-height:20px;
+}
+
+.botones{ 
+	background-color:#FF5722;
+	margin-top:20px; /* Es para darles espacio superior con los títulos de página*/
+	margin-right: auto; /* Es para darles espacio lateral derecho entre los tres botones de los que dispongo en la parte superior*/
+	margin-bottom: 3%; /*Es para que halla espacio entre los botones de arriba y los de abajo */
+	border-color:transparent;
+	color:#fff;
+	font-size:45px;
+	font-weight:bold;
+	height: 70px;
+}
